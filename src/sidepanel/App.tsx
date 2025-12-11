@@ -11,6 +11,8 @@ import { HumanInputDialog } from './components/HumanInputDialog'
 import { Header } from './components/Header'
 import { ModeToggle } from './components/ModeToggle'
 import { useChatStore } from './stores/chatStore'
+import { useVersionCheck } from './hooks/useVersionCheck'
+import { BrowserUpgradeNotice } from './teachmode/BrowserUpgradeNotice'
 import './styles.css'
 
 /**
@@ -38,6 +40,9 @@ export function App() {
 
   // Check if any execution is running (chat or teach mode)
   const isExecuting = isProcessing || teachModeState === 'executing'
+
+  // Check browser version for upgrade warning
+  const { showUpgradeWarning, currentVersion, dismissWarning } = useVersionCheck()
   
   // Initialize global announcer for screen readers
   const announcer = useAnnouncer()
@@ -122,6 +127,16 @@ export function App() {
           isProcessing={isExecuting}
           isTeachMode={appMode === 'teach'}
         />
+
+        {/* Browser upgrade warning for outdated versions */}
+        {showUpgradeWarning && (
+          <div className="px-3 py-2">
+            <BrowserUpgradeNotice
+              currentVersion={currentVersion}
+              onDismiss={dismissWarning}
+            />
+          </div>
+        )}
 
         {/* Main content area - changes based on mode */}
         <div className="flex-1 min-h-0 overflow-hidden">
