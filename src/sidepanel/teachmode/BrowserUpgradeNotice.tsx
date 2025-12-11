@@ -26,10 +26,10 @@ export function BrowserUpgradeNotice({ currentVersion, onDismiss, className }: B
       {/* Content */}
       <div className="flex-1 min-w-0">
         <p className="text-sm font-medium text-foreground">
-          BrowserOS Update Required
+          New BrowserOS Available
         </p>
         <p className="mt-0.5 text-xs text-muted-foreground">
-          You're using BrowserOS {currentVersion || 'an older version'}. Please upgrade to use Teach mode.
+          We've released a completely revamped BrowserOS with a new AI agent. Update to get the latest features.
         </p>
       </div>
 
