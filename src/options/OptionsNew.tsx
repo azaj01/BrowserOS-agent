@@ -5,7 +5,6 @@ import { ProviderTemplates } from './components/ProviderTemplates'
 import { ConfiguredModelsList } from './components/ConfiguredModelsList'
 import { AddProviderModal } from './components/AddProviderModal'
 import { MCPSection } from './components/MCPSection'
-import { SearchProvidersSection } from './components/SearchProvidersSection'
 import { AboutSection } from './components/AboutSection'
 import { useBrowserOSPrefs } from './hooks/useBrowserOSPrefs'
 import { useOptionsStore } from './stores/optionsStore'
@@ -22,7 +21,14 @@ export function OptionsNew() {
   // Get initial section from URL hash or default to 'browseros-ai'
   const getInitialSection = () => {
     const hash = window.location.hash.slice(1) // Remove '#'
-    const validSections = ['browseros-ai', 'providers-hub', 'mcp', 'search-providers', 'about']
+    const validSections = [
+      'browseros-ai',
+      'providers-hub',
+      'connect-mcps',
+      'mcp',
+      'scheduled-tasks',
+      'about'
+    ]
     return validSections.includes(hash) ? hash : 'browseros-ai'
   }
 
@@ -172,10 +178,6 @@ export function OptionsNew() {
 
         {activeSection === 'providers-hub' && (
           <ProvidersHubSection />
-        )}
-
-        {activeSection === 'search-providers' && (
-          <SearchProvidersSection />
         )}
 
         {activeSection === 'about' && (

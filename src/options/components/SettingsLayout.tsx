@@ -14,8 +14,9 @@ interface SidebarItem {
 const mainSidebarItems: SidebarItem[] = [
   { id: 'browseros-ai', label: 'BrowserOS AI', icon: Bot },
   { id: 'providers-hub', label: 'LLM Chat & Hub', icon: Globe2 },
-  { id: 'search-providers', label: 'Search Engines', icon: ScanSearch },
-  { id: 'mcp', label: 'BrowserOS as MCP server', icon: Server },
+  { id: 'connect-mcps', label: 'Connect to MCPs', icon: ScanSearch },
+  { id: 'mcp', label: 'BrowserOS as MCP', icon: Server },
+  { id: 'scheduled-tasks', label: 'Scheduled Tasks', icon: Settings },
   { id: 'revisit-onboarding', label: 'Revisit Onboarding', icon: LogIn }
 ]
 
